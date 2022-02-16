@@ -17,6 +17,7 @@
 
     </head>
     <body>
+
         <div class="content">
             <header></header>
             <main></main>
@@ -24,13 +25,14 @@
             <footer></footer>
         </div>
         
-
         <script>
             $(document).ready(function(){
+                console.log('Готово!');
                 $("header").load( "components/header.html" );
                 $("main").load( "components/main.html" );
                 $("article").load( "components/article.html" );
                 $("footer").load( "components/footer.html" );
+                $( "#result" ).load( "ajax/test.html #container" );
             })
         </script>
 
