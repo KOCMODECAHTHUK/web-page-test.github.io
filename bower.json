@@ -1,0 +1,22 @@
+{
+  "name": "web",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "Cepera <gundar.sereoja@yandex.ru>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/KOCMODECAHTHUK/web-page-test.github.io",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+
+  "dependencies": {
+      "normalize.css": "*",
+      "jquery": "2.*"
+  }
+}
