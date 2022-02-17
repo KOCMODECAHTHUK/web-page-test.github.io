@@ -4,7 +4,6 @@ var gulp = require('gulp'),
     watch = require('gulp-watch'),
     prefixer = require('gulp-autoprefixer'),
     uglify = require('gulp-uglify'),
-    sass = require('gulp-sass'),
     sourcemaps = require('gulp-sourcemaps'),
     rigger = require('gulp-rigger'),
     cssmin = require('gulp-minify-css'),
@@ -14,6 +13,8 @@ var gulp = require('gulp'),
     browserSync = require("browser-sync"),
     reload = browserSync.reload;
     
+const sass = require('gulp-sass')(require('sass'));
+
     var path = {
         build: { //Тут мы укажем куда складывать готовые после сборки файлы
             html: 'build/',
@@ -46,14 +47,37 @@ var gulp = require('gulp'),
         },
         tunnel: true,
         host: 'localhost',
-        port: 3000,
+        port: 9000,
         logPrefix: "Frontend_Devil"
         });
     });
 
-    gulp.task('html:build', function () {
+    gulp.task('html', async function () {
         gulp.src(path.src.html) //Выберем файлы по нужному пути
             .pipe(rigger()) //Прогоним через rigger
             .pipe(gulp.dest(path.build.html)) //Выплюнем их в папку build
             .pipe(reload({stream: true})); //И перезагрузим наш сервер для обновлений
+    });
+
+    // Сборщик для JS
+    gulp.task('js', async function () {
+        gulp.src(path.src.js) //Найдем наш main файл
+            .pipe(rigger()) //Прогоним через rigger
+            .pipe(sourcemaps.init()) //Инициализируем sourcemap
+            .pipe(uglify()) //Сожмем наш js (Позже убрать)
+            .pipe(sourcemaps.write()) //Пропишем карты
+            .pipe(gulp.dest(path.build.html)) //Запишем результирующий файл в папку build
+            .pipe(reload({stream: true})); //И перезагрузим наш сервер для обновлений
+    });
+
+    // Сборщик для CSS
+    gulp.task('style', async function () {
+        gulp.src(path.src.style) //Выберем наш main.scss
+            .pipe(sourcemaps.init()) //То же самое что и с js
+            .pipe(sass()) //Скомпилируем
+            .pipe(prefixer(['last 5 versions', '> 1%', 'ie 8', 'ie 7'], { cascade: true })) //Добавим вендорные префиксы
+            .pipe(cssmin()) //Минификация
+            .pipe(sourcemaps.write())
+            .pipe(gulp.dest(path.build.css))
+            .pipe(reload({stream: true}));
     });
