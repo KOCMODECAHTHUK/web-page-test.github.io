@@ -1,0 +1,85 @@
+body {
+	padding: 0;
+	margin: 0;
+	color: rgb(255, 255, 255);
+	font-size: 14px;
+	background: rgb(36, 38, 44);
+}
+
+.container {
+	width: 1170px;
+	/*позиционирование по центру*/
+	margin: 0 auto; 
+}
+
+.vivbox {
+	height: 20px;
+	width: 70px;
+	margin-right: 10px;
+    background: #aaa;
+}
+
+.simplebox {
+	height: 20px;
+	width: 70px;
+	margin-bottom: 10;
+	margin-right: 10px;
+    background: #aaa;
+}
+
+.long {
+	width: 100px;
+	margin-right: 20px;
+}
+
+.left {
+	margin-left: auto;
+}
+
+.right {
+	margin-right: auto;
+}
+
+.centre {
+	margin-right: auto;
+	margin-left: auto;
+}
+
+.header {
+	padding-top: 50px;
+}
+
+.desc-left, .desc-right {
+	width: 564px;
+}
+
+.half {
+	width: 128px;
+}
+
+.ex {
+	width: 200px;
+}
+
+.big {
+	height: 200px;
+	width: 440px;
+}
+
+.buttun {
+	height: 30px;
+	width: 100px;
+}
+
+.blue {
+    background: rgb(70, 128, 255);
+}
+.blackblue {
+    background: rgb(32, 73, 160);
+}
+.orange {
+    background: rgb(245, 103, 38);
+}
+.gray {
+	background: rgb(100, 100, 100);
+}
