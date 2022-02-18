@@ -38,17 +38,18 @@ var path = {
     clean: './build'
 };
 
-gulp.task('webserver', function(){
-    browserSync:({
-        server: {
+// Переменная с настройками dev сервера
+var config = {
+    server: {
         baseDir: "./build"
     },
-    tunnel: true,
+    notify: false,
+    // tunnel: true, // Открывает тунель для сайта
     host: 'localhost',
     port: 9000,
     logPrefix: "Frontend_Devil"
-    });
-});
+};
+
 gulp.task('html', async function () {
     gulp.src(path.src.html) //Выберем файлы по нужному пути
         .pipe(rigger()) //Прогоним через rigger
@@ -98,12 +99,12 @@ gulp.task('fonts', async function() {
 });
 
 // удаляет папку build
-gulp.task('clean', async function (cb) {
+gulp.task('clean', function (cb) {
     rimraf(path.clean, cb);
 });
 
 // каждый раз при изменении какого то файла запускать нужную задачу
-gulp.task('watch', async function(){
+gulp.task('watch', function(){
     watch([path.watch.html], function(event, cb) {
         gulp.start('html');
     });
@@ -114,3 +115,10 @@ gulp.task('watch', async function(){
         gulp.start('js');
     });
 });
+
+// для livereload создает лок. сервер
+gulp.task('webserver', function () {
+    browserSync(config);
+});
+
+gulp.task('default', gulp.series('webserver', 'watch'));
