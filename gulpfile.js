@@ -1,4 +1,3 @@
-'use strict';
 var gulp = require('gulp'),// Подключаем Gulp
     watch = require('gulp-watch'),// Будет нужен для наблюдения за изменениями файлов
     prefixer = require('gulp-autoprefixer'),// Подключаем библиотеку для автоматического добавления префиксов
@@ -17,7 +16,9 @@ var path = {
     build: { //Тут мы укажем куда складывать готовые после сборки файлы
         html: 'build/',
         js: 'build/js/',
+        minjs: 'buld/js/main.min.js',
         css: 'build/css/',
+        mincss: 'build/css/main.min.css',
         img: 'build/img/',
         fonts: 'build/fonts/'
     },
@@ -25,6 +26,7 @@ var path = {
         html: 'src/*.html', //Синтаксис src/*.html говорит gulp что мы хотим взять все файлы с расширением .html
         js: 'src/js/main.js',//В стилях и скриптах нам понадобятся только main файлы
         style: 'src/style/main.scss',
+        css: 'src/css/',
         img: 'src/img/**/*.*', //Синтаксис img/**/*.* означает - взять все файлы всех расширений из папки и из вложенных каталогов
         fonts: 'src/fonts/**/*.*'
     },
@@ -50,10 +52,10 @@ var config = {
     logPrefix: "Frontend_Devil"
 };
 
+// Таск для сборки html
 gulp.task('html', async function () {
     gulp.src(path.src.html) //Выберем файлы по нужному пути
         .pipe(rigger()) //Прогоним через rigger
-        .pipe(gulp.dest(path.build.html)) //Выплюнем их в папку build
         .pipe(reload({stream: true})); //И перезагрузим наш сервер для обновлений
 });
 
@@ -62,9 +64,7 @@ gulp.task('js', async function () {
     gulp.src(path.src.js) //Найдем наш main файл
         .pipe(rigger()) //Прогоним через rigger
         .pipe(sourcemaps.init()) //Инициализируем sourcemap
-        .pipe(uglify()) //Сожмем
         .pipe(sourcemaps.write()) //Пропишем карты
-        .pipe(gulp.dest(path.build.html)) //Запишем результирующий файл в папку build
         .pipe(reload({stream: true})); //И перезагрузим наш сервер для обновлений
 });
 
@@ -74,10 +74,19 @@ gulp.task('style', async function () {
         .pipe(sourcemaps.init()) //То же самое что и с js
         .pipe(sass()) //Скомпилируем
         .pipe(prefixer(['last 5 versions', '> 1%', 'ie 8', 'ie 7'], { cascade: true })) //Добавим вендорные префиксы
-        .pipe(cssmin()) //Минификация
         .pipe(sourcemaps.write())
-        .pipe(gulp.dest(path.build.css))
+        .pipe(gulp.dest(path.src.css))
         .pipe(reload({stream: true}));
+});
+
+// Минифицирует css и js
+gulp.task('minify', function () {
+    gulp.src(path.src.style)
+        .pipe(cssmin())
+        .pipe(path.build.mincss);
+    gulp.src(path.src.js)
+        .pipe(uglify()) //Сожмем наш js
+        .pipe(path.build.minjs);
 });
 
 // Таск для сборки img
@@ -103,8 +112,21 @@ gulp.task('clean', function (cb) {
     rimraf(path.clean, cb);
 });
 
+gulp.task('build', gulp.series('clean', 'fonts', 'image', async function () {
+    gulp.src(path.src.style)
+        .pipe(sass()) //Скомпилируем
+        .pipe(prefixer(['last 5 versions', '> 1%', 'ie 8', 'ie 7'], { cascade: true })) //Добавим вендорные префиксы
+        .pipe(gulp.dest(path.build.css))
+        .pipe(gulp.dest(path.src.css)); //Выберем наш main.scss, И в build
+    gulp.src(path.src.html)
+        .pipe(rigger())
+        .pipe(gulp.dest(path.build.html)); //Выберем файлы по нужному пути, и Выплюнем их в папку build;
+    gulp.src(path.src.js)
+        .pipe(gulp.dest(path.build.js)); //Найдем наш main файл и Выплюнем готовый файл в build
+}));
+
 // каждый раз при изменении какого то файла запускать нужную задачу
-gulp.task('watch', function(){
+gulp.task('watch', async function(){
     watch([path.watch.html], function(event, cb) {
         gulp.start('html');
     });
@@ -117,8 +139,8 @@ gulp.task('watch', function(){
 });
 
 // для livereload создает лок. сервер
-gulp.task('webserver', function () {
+gulp.task('webserver', async function () {
     browserSync(config);
 });
 
-gulp.task('default', gulp.series('webserver', 'watch'));
+gulp.task('default', gulp.series('build', 'webserver', 'watch'));
