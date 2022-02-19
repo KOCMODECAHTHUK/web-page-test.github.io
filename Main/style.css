@@ -9,66 +9,67 @@ body {
 .container {
 	width: 1170px;
 	/*позиционирование по центру*/
-	margin: 0 auto; 
+	margin: 0 auto;
+}
+.box{
+	width: 50%;
+}
+.selfbox{
+	width: 25%;
+}
+
+.boxtest{
+	width: 50%;
+	background: rgb(36, 38, 44);
+}
+.boxtest2{
+	width: 50%;
+	background: rgb(100, 150, 180);
 }
 
 .vivbox {
 	height: 20px;
 	width: 70px;
-	margin-right: 10px;
-    background: #aaa;
+	margin: 5px;
+    background: rgb(100, 100, 100);
 }
 
 .simplebox {
 	height: 20px;
 	width: 70px;
 	margin-bottom: 10;
+	margin: 5px;
+    background: #aaa;
+}
+
+.button {
+	height: 30px;
+	width: 100px;
+	margin: 5px;
+    background: rgb(32, 73, 160);
+}
+
+.img{
+	min-height: 20px;
+	min-width: 20px;    
+	box-sizing: border-box;
+	width: 440px;
+	height: 200px;
+	margin-bottom: 10;
 	margin-right: 10px;
     background: #aaa;
 }
 
-.long {
-	width: 100px;
-	margin-right: 20px;
-}
-
-.left {
+.left{
 	margin-left: auto;
 }
-
-.right {
+.right{
 	margin-right: auto;
 }
 
-.centre {
-	margin-right: auto;
+.center{
 	margin-left: auto;
-}
-
-.header {
-	padding-top: 50px;
-}
-
-.desc-left, .desc-right {
-	width: 564px;
-}
-
-.half {
-	width: 128px;
-}
-
-.ex {
-	width: 200px;
-}
-
-.big {
-	height: 200px;
-	width: 440px;
-}
-
-.buttun {
-	height: 30px;
-	width: 100px;
+	margin-right: auto;
 }
 
 .blue {
@@ -79,7 +80,4 @@ body {
 }
 .orange {
     background: rgb(245, 103, 38);
-}
-.gray {
-	background: rgb(100, 100, 100);
 }
