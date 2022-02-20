@@ -2,10 +2,7 @@ body {
 	padding: 0;
 	margin: 0;
 	color: rgb(255, 255, 255);
-	font-size: 14px;
-	background: rgb(36, 38, 44);
 }
-
 .container {
 	width: 1170px;
 	/*позиционирование по центру*/
@@ -21,17 +18,21 @@ body {
 	width: 25%;
 }
 
-.vivbox {
+.graybox {
 	height: 20px;
-	width: 70px;
+	width: 20%;
 	margin: 5px;
     background: rgb(100, 100, 100);
 }
-
 .simplebox {
 	height: 20px;
 	width: 70px;
-	margin-bottom: 10;
+	margin: 5px;
+    background: #aaa;
+}
+.imgbox {
+	height: 150px;
+	width: 100%;
 	margin: 5px;
     background: #aaa;
 }
@@ -41,14 +42,6 @@ body {
 	width: 100px;
 	margin: 5px;
     background: rgb(32, 73, 160);
-}
-
-.wrapper {
-	position: relative;
-  }
-  img {
-	width: 100%;
-	height: auto;
 }
 
 .left{
@@ -63,18 +56,31 @@ body {
 	margin-right: auto;
 }
 
+.w100 {
+	width: 100px;
+}
+.w140 {
+	width: 140px;
+}
+.w180 {
+	width: 180px;
+}
+.g50 {
+	width: 50%;
+}
+.g65 {
+	width: 65%;
+}
+.g80 {
+	width: 80%;
+}
+
 .blue {
     background: rgb(70, 128, 255);
 }
-.lightblue {
-    background: rgb(151, 183, 253);
-}
 .blackblue {
-    background: rgb(32, 73, 160);
+    background: rgb(29, 98, 202);
 }
-.orange {
-    background: rgb(245, 103, 38);
-}
-.black {
-    background: rgb(36, 38, 44);
+.gray{
+	background: rgb(100, 100, 100);
 }
