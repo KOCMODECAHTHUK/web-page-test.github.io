@@ -12,19 +12,13 @@ body {
 	margin: 0 auto;
 }
 .box{
+	width: 100%;
+}
+.halfbox{
 	width: 50%;
 }
-.selfbox{
+.quarterbox{
 	width: 25%;
-}
-
-.boxtest{
-	width: 50%;
-	background: rgb(36, 38, 44);
-}
-.boxtest2{
-	width: 50%;
-	background: rgb(100, 150, 180);
 }
 
 .vivbox {
@@ -49,15 +43,12 @@ body {
     background: rgb(32, 73, 160);
 }
 
-.img{
-	min-height: 20px;
-	min-width: 20px;    
-	box-sizing: border-box;
-	width: 440px;
-	height: 200px;
-	margin-bottom: 10;
-	margin-right: 10px;
-    background: #aaa;
+.wrapper {
+	position: relative;
+  }
+  img {
+	width: 100%;
+	height: auto;
 }
 
 .left{
@@ -75,9 +66,15 @@ body {
 .blue {
     background: rgb(70, 128, 255);
 }
+.lightblue {
+    background: rgb(151, 183, 253);
+}
 .blackblue {
     background: rgb(32, 73, 160);
 }
 .orange {
     background: rgb(245, 103, 38);
+}
+.black {
+    background: rgb(36, 38, 44);
 }
