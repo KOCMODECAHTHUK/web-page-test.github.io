@@ -7,7 +7,6 @@ var age = null;
 let id = Symbol();
 var user = { name: "Вася" };
 function init() {
-    alert(0) // "number"
     alert(typeof 1n) // "bigint"
     alert(typeof true) // "boolean"
     alert(typeof "foo") // "string"
@@ -15,6 +14,7 @@ function init() {
     alert(typeof {}) // "object"
 }
 function init2() {
+    alert(0) // "number"
     alert(typeof n)
     alert(typeof bigInt)
     alert(typeof n)
