@@ -13,7 +13,7 @@ function init() {
     alert(typeof Symbol()) // "symbol"
     alert(typeof {}) // "object"
 }
-function init2() {
+function init_2() {
     alert(0) // "number"
     alert(typeof n)
     alert(typeof bigInt)
