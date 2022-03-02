@@ -8,14 +8,15 @@ let id = Symbol();
 var user = { name: "Вася" };
 function init() {
     alert(0) // "number"
-
-    typeof 1n // "bigint"
-
-    typeof true // "boolean"
-
-    typeof "foo" // "string"
-
-    typeof Symbol() // "symbol"
-
-    typeof {} // "object"
+    alert(typeof 1n) // "bigint"
+    alert(typeof true) // "boolean"
+    alert(typeof "foo") // "string"
+    alert(typeof Symbol()) // "symbol"
+    alert(typeof {}) // "object"
+}
+function init2() {
+    alert(typeof n)
+    alert(typeof bigInt)
+    alert(typeof n)
+    alert(typeof n)
 }
