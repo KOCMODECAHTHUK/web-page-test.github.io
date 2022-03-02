@@ -7,15 +7,15 @@ var age = null;
 let id = Symbol();
 var user = { name: "Вася" };
 function init() {
-    typeof 0 // "number"
-    
+    alert(0) // "number"
+
     typeof 1n // "bigint"
-    
+
     typeof true // "boolean"
-    
+
     typeof "foo" // "string"
-    
+
     typeof Symbol() // "symbol"
-    
+
     typeof {} // "object"
 }
