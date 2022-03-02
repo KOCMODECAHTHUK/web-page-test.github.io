@@ -3,6 +3,8 @@ body {
 	margin: 0;
 	color: rgb(255, 255, 255);
 }
+
+/* Контейнеры для объектов на странице */
 .container {
 	width: 1170px;
 	/*позиционирование по центру*/
@@ -18,7 +20,8 @@ body {
 	width: 25%;
 }
 
-.graybox {
+/* Различные карточки/коробки/кнопки */
+.navbox {
 	height: 20px;
 	width: 20%;
 	margin: 5px;
@@ -36,7 +39,6 @@ body {
 	margin: 5px;
     background: #aaa;
 }
-
 .button {
 	height: 30px;
 	width: 100px;
@@ -44,18 +46,19 @@ body {
     background: rgb(32, 73, 160);
 }
 
+/* Позиционирования */
 .left{
 	margin-left: auto;
 }
 .right{
 	margin-right: auto;
 }
-
 .center{
 	margin-left: auto;
 	margin-right: auto;
 }
 
+/* Размеры */
 .w100 {
 	width: 100px;
 }
@@ -75,6 +78,7 @@ body {
 	width: 80%;
 }
 
+/* Цвета */
 .blue {
     background: rgb(70, 128, 255);
 }
