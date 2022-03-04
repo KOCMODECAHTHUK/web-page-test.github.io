@@ -8,8 +8,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
         <link rel="stylesheet" href="Main/style.css">
-        
-        <script src="Main/main.js"></script>
     </section>
   </head>
   <body>
@@ -42,7 +40,6 @@
       <div class="row">
         <div class="button left" onclick="init()">Первый пример</div>
         <div class="button blackblue right" onclick="init2()">Второй</div>
-        <button type="button g65" onclick="myFunction()">Попробуй3</button>
       </div>
     </div><br><!-- /.container -->
 
@@ -50,6 +47,9 @@
     <div class="container">
       <div class="row">
         <div class="halfbox">
+          <button class="showTest">Показать теcт</button>
+          <div id="app1" style="display:none;"></div>
+          <input type="button" class="btnQuestion" name="ok" value="Вопросы"></input>
           <p class="simplebox g50"></p>
           <p class="simplebox g65"></p>
           <p class="simplebox g80"></p>
@@ -81,6 +81,6 @@
         </div>
       </div>
     </div><!-- /.container -->
-
+    <script src="Main/main.js"></script>
   </body>
 </html>
