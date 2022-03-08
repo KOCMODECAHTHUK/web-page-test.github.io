@@ -43,13 +43,29 @@ var age = null;
 let id = Symbol();
 var user = { name: "Вася" };
     let arr = [
-        typeof n,
-        typeof bigInt,
-        typeof str,
-        typeof age,
-        typeof id,
-        typeof age
+        'n = ' + n + ' - ' + typeof n,
+        'bigInt = ' + bigInt + ' - ' + typeof bigInt,
+        'str = ' + str + ' - ' + typeof str,
+        'age = ' + age + ' - ' + typeof age,
+        'id = ' + 'Symbol - ' + typeof id,
+        'user = ' + user + ' - ' + typeof user
     ]
     alert(arr.join('\n'))
 }
 document.querySelector('.btnQuestion').addEventListener('click', showMessage1)
+
+function showNum(){
+var n1 = 76;
+var n2 = 76
+var s2
+    let ar = [
+        'n1 = ' + n1,
+        'n2 = ' + n2,,
+        'n1 == n2   |  ' + (n1 == n2),
+        'n1 < n2     |  ' + (n1 < n2),
+        'n1 <= n2   |  ' + (n1 <= n2),
+        'n1 > n2     |  ' + (n1 > n2),
+    ]
+    alert(ar.join('\n'))
+}
+document.querySelector('.btnNum').addEventListener('click', showNum)
