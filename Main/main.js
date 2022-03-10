@@ -87,7 +87,7 @@ function showAge(){
 }
 document.querySelector('.btnAge').addEventListener('click', showAge)
 
-function showCheWhile(){
+function showWhile(){
     let i = 0;
     let ar1 = [];
     while (i <= 50) { // выводит 0, затем 1, затем 2
@@ -96,4 +96,18 @@ function showCheWhile(){
     }
     alert(ar1.join('\n'));
 }
-document.querySelector('.btnNeChetnie').addEventListener('click', showCheWhile)
+document.querySelector('.btnNeWhile').addEventListener('click', showWhile)
+
+function showNeFor(){
+    let ar2 = [];
+    for (let i = 0; i <= 50; i++) {
+        if(i%2) ar2.push(i)
+    }
+    alert(ar2.join('\n'));
+}
+document.querySelector('.btnNeFor').addEventListener('click', showNeFor)
+
+function showNeForIn(){
+    
+}
+document.querySelector('.btnNeForIn').addEventListener('click', showNeForIn)
