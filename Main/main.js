@@ -69,3 +69,31 @@ var s2
     alert(ar.join('\n'))
 }
 document.querySelector('.btnNum').addEventListener('click', showNum)
+
+function showAge(){
+    let age = prompt('Введите возраст:', '');
+    if (age >= 18){
+        if (age >= 30) alert( 'Для всех возрастов' );
+        else alert( 'Для молодежи' );
+    } else if (age > 0) alert( 'Для детей' );
+    
+    // Более упрощенный вариант
+    // let age1 = prompt('Возраст?', 18);
+    // let message = (age1 < 1) ? '...' :
+    // (age1 < 18) ? 'Для детей' :
+    //   (age1 < 31) ? 'Для молодежи' :
+    //   'Для всех возрастов' ;
+    // alert( message );
+}
+document.querySelector('.btnAge').addEventListener('click', showAge)
+
+function showCheWhile(){
+    let i = 0;
+    let ar1 = [];
+    while (i <= 50) { // выводит 0, затем 1, затем 2
+        if(i%2) ar1.push(i)
+        i++;
+    }
+    alert(ar1.join('\n'));
+}
+document.querySelector('.btnNeChetnie').addEventListener('click', showCheWhile)
