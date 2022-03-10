@@ -36,12 +36,12 @@ function showMessage() {
 document.querySelector('.showTest').addEventListener('click', showMessage)
 
 function showMessage1() {
-var n = 123;
-const bigInt = 1234567890123456789012345678901234567890n;
-var str = "World";
-var age = null;
-let id = Symbol();
-var user = { name: "Вася" };
+    var n = 123;
+    const bigInt = 1234567890123456789012345678901234567890n;
+    var str = "World";
+    var age = null;
+    let id = Symbol();
+    var user = { name: "Вася" };
     let arr = [
         'n = ' + n + ' - ' + typeof n,
         'bigInt = ' + bigInt + ' - ' + typeof bigInt,
@@ -60,7 +60,7 @@ var n2 = 76
 var s2
     let ar = [
         'n1 = ' + n1,
-        'n2 = ' + n2,,
+        'n2 = ' + n2,
         'n1 == n2   |  ' + (n1 == n2),
         'n1 < n2     |  ' + (n1 < n2),
         'n1 <= n2   |  ' + (n1 <= n2),
@@ -89,25 +89,27 @@ document.querySelector('.btnAge').addEventListener('click', showAge)
 
 function showWhile(){
     let i = 0;
-    let ar1 = [];
+    let arr = [];
     while (i <= 50) { // выводит 0, затем 1, затем 2
-        if(i%2) ar1.push(i)
+        if(i%2) arr.push(i)
         i++;
     }
-    alert(ar1.join('\n'));
+    alert(arr.join('\n'));
 }
 document.querySelector('.btnNeWhile').addEventListener('click', showWhile)
 
 function showNeFor(){
-    let ar2 = [];
+    let arr = [];
     for (let i = 0; i <= 50; i++) {
-        if(i%2) ar2.push(i)
+        if(i%2) arr.push(i)
     }
-    alert(ar2.join('\n'));
+    alert(arr.join('\n'));
 }
 document.querySelector('.btnNeFor').addEventListener('click', showNeFor)
 
 function showNeForIn(){
-    
+    let arr = [];
+    for(any in document) arr.push(any);
+    alert(arr.join('\n'));
 }
 document.querySelector('.btnNeForIn').addEventListener('click', showNeForIn)
