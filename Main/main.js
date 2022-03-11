@@ -13,6 +13,11 @@ function init2() {
     alert(typeof n)
 }
 
+function show(){
+    alert('Ты забыл прописать пути');
+}
+document.querySelector('.btn').addEventListener('click', show)
+
 function showMessage() {
     let arr = [
         "Площадь квадрата со стороной 4 см?",
@@ -113,3 +118,23 @@ function showNeForIn(){
     alert(arr.join('\n'));
 }
 document.querySelector('.btnNeForIn').addEventListener('click', showNeForIn)
+
+function showMinMax(){
+    let arr = [];
+    let i = prompt('Введите максимальное число:', '100');
+    for(let j = 0; getRandomInt(i); j++){}
+    alert(arr.join('\n'));
+}
+document.querySelector('.btnMinMax').addEventListener('click', showMinMax)
+
+function getRandomInt(max) {
+    return Math.floor(Math.random() * max);
+}
+
+function show2(){
+    let arr = [];
+    let i = prompt('Введите максимальное число:', '100');
+    for(let j = 0; getRandomInt(i); j++)
+    alert(arr.join('\n'));
+}
+document.querySelector('.btn').addEventListener('click', show2)
