@@ -139,3 +139,26 @@ function showAss(){
     alert(arr.map(f => f.join(" - ")).join("\n"));
 }
 document.querySelector('.btnAss').addEventListener('click', showAss)
+
+function showSwapMinMax(){
+    let array = [];
+    for(let j = 0; j<10; j++) array.push(getRandomInt(10))
+    let min1 = array[0]; let max2 = array[0];
+    for(let i = 1; i < array.length; i++){
+        if(array[i] < min1) {
+            min1 = array[i];
+            minIndex = i;
+        }
+        if(max2 < array[i]) {
+            max2 = array[i];
+            maxIndex = i;
+        }
+    }
+    mxI = maxIndex + 1;
+    miI = minIndex + 1;
+    alert(array.join('\n') +'\nMin:\n' + min1 + ' - ' + miI + '\nMax:\n' + max2 + ' - ' + mxI);
+    array[minIndex] = max2;
+    array[maxIndex] = min1;
+    alert(array.join('\n') +'\nMin*:\n' + max2 + ' - ' + miI + '\nMax*:\n' + min1 + ' - ' + mxI);
+}
+document.querySelector('.btnSwapMinMax').addEventListener('click', showSwapMinMax)
