@@ -122,7 +122,7 @@ document.querySelector('.btnNeForIn').addEventListener('click', showNeForIn)
 function showMinMax(){
     let arr = [];
     let i = prompt('Введите максимальное число:', '100');
-    for(let j = 0; getRandomInt(i); j++){}
+    for(let j = 0; j<10; j++) arr.push(getRandomInt(i))
     alert(arr.join('\n'));
 }
 document.querySelector('.btnMinMax').addEventListener('click', showMinMax)
@@ -131,10 +131,11 @@ function getRandomInt(max) {
     return Math.floor(Math.random() * max);
 }
 
-function show2(){
-    let arr = [];
-    let i = prompt('Введите максимальное число:', '100');
-    for(let j = 0; getRandomInt(i); j++)
-    alert(arr.join('\n'));
+function showAss(){
+    let arr = [
+        ['Пушкин: '], ['Сказка о рыбаке и рыбке', 'Сказка о золотом петушке', 'Капитанская дочка'],
+        ['Есенин: '], ['Кобыльи корабли', 'Москва кабацкая', 'Чёрный человек']
+    ];
+    alert(arr.map(f => f.join(" - ")).join("\n"));
 }
-document.querySelector('.btn').addEventListener('click', show2)
+document.querySelector('.btnAss').addEventListener('click', showAss)
