@@ -162,3 +162,17 @@ function showSwapMinMax(){
     alert(array.join('\n') +'\nMin*:\n' + max2 + ' - ' + miI + '\nMax*:\n' + min1 + ' - ' + mxI);
 }
 document.querySelector('.btnSwapMinMax').addEventListener('click', showSwapMinMax)
+
+function htmlspan(a, b) {
+	let c = document.createElement("span");   // Создаем объект span
+    c.innerHTML = a;                          // Вставляем html текст в span
+    c.style.fontSize = parseInt(b)+"px";      // Выбираем размер шрифта 
+	document.body.appendChild(c);             // Добавляем элемент в конец страницы
+}
+// Оболочка ввода данных для функций
+function prohtmlspan() {
+    let a = prompt("Введите текст");
+    let b = prompt("Вводите размер шрифта");
+    htmlspan(a, b);
+}
+document.querySelector('.btnH').addEventListener('click', prohtmlspan)
