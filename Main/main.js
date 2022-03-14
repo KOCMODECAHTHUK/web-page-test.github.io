@@ -163,16 +163,24 @@ function showSwapMinMax(){
 }
 document.querySelector('.btnSwapMinMax').addEventListener('click', showSwapMinMax)
 
-function htmlspan(a, b) {
-	let c = document.createElement("span");   // Создаем объект span
+// Оболочка ввода данных для функций
+function showH() {
+    let a = prompt("Введите текст");
+    let b = prompt("Вводите размер шрифта");
+    let c = document.createElement("span");   // Создаем объект span
     c.innerHTML = a;                          // Вставляем html текст в span
     c.style.fontSize = parseInt(b)+"px";      // Выбираем размер шрифта 
 	document.body.appendChild(c);             // Добавляем элемент в конец страницы
 }
-// Оболочка ввода данных для функций
-function prohtmlspan() {
-    let a = prompt("Введите текст");
-    let b = prompt("Вводите размер шрифта");
-    htmlspan(a, b);
+document.querySelector('.btnH').addEventListener('click', showH)
+
+function showHtml() {
+	let a = prompt("Введите поля таблицы через запятую");
+    let b = a.split(","); // Разделяем полученную через prompt строку в массив
+    if (b.length==4) { // Проверяем получили ли мы 4 элемента массива 
+	    let e = document.createElement("table");   // Создаем объект table
+        e.innerHTML = "<tr><td>"+b[0]+"</td><td>"+b[1]+"</td><td>"+b[2]+"</td><td>"+b[3]+"</td></tr>"; // Вставляем html каркас в table
+	    document.body.appendChild(e);             // Добавляем элемент в конец страницы  
+    } else alert("Вы должны ввести 4 поля");
 }
-document.querySelector('.btnH').addEventListener('click', prohtmlspan)
+document.querySelector('.btnHtml').addEventListener('click', showHtml)
